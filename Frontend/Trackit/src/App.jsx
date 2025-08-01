@@ -16,7 +16,7 @@ import PrivateRoute from './routes/PrivateRoute';
 
 const App = () => {
   return (
-    <div className='text-5xl text-amber-300'>
+    <div>
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />

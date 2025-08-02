@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import UserProvider from './context/userContext';
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/Signup";
 import Dashboard from "./pages/Admin/Dashboard";
@@ -16,6 +16,7 @@ import PrivateRoute from './routes/PrivateRoute';
 
 const App = () => {
   return (
+    <UserProvider>
     <div>
       <Router>
         <Routes>
@@ -38,6 +39,7 @@ const App = () => {
         </Routes>
       </Router>
     </div>
+    </UserProvider>
   );
 }
 

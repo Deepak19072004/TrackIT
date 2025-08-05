@@ -13,6 +13,7 @@ import MyTasks from "./pages/User/Mytasks"
 import ViewTaskDetails from "./pages/User/ViewTaskDetails"
 
 import PrivateRoute from './routes/PrivateRoute';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -40,6 +41,14 @@ const App = () => {
         </Routes>
       </Router>
     </div>
+    <Toaster 
+      toastOptions={{
+        className: "",
+        style: {
+          fontSize: "13px",
+        }
+      }}
+    />  
     </UserProvider>
   );
 }

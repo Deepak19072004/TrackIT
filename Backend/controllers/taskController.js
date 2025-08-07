@@ -103,7 +103,7 @@ const createTask = async (req,res) => {
         }
 
         const task = await Task.create({
-            title,description,priority,dueDate,assignedTo,createdBy: req.user._id,todoChecklist
+            title,description,priority,dueDate,assignedTo,attachments,createdBy: req.user._id,todoChecklist
         });
 
         res.status(201).json({message: "Task successfully created", task});
@@ -125,7 +125,7 @@ const updateTask = async (req,res) => {
         task.priority = req.body.priority || task.priority;
         task.dueDate = req.body.dueDate || task.dueDate;
         task.todoChecklist = req.body.todoChecklist || task.todoChecklist;
-        task.attachements = req.body.attachements || task.attachements;
+        task.attachments = req.body.attachments || task.attachments;
 
         if(req.body.assignedTo) {
             if(!Array.isArray(req.body.assignedTo)) {

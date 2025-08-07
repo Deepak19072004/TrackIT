@@ -44,15 +44,34 @@ const ManageTasks = () => {
   };
 
   const handleDownload = async () => {
+    try{
+      const response = await axiosInstance.get(API_PATHS.REPORTS.EXPORT_TASKS, {
+        responseType: "blob"
+      });
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download","task_details.xlsx");
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    }
+    catch (error){
+      console.error("Couldn't download report",error);
+      toast.error("Failed to download user details, Please Try again")
+    }
 
   }
 
   useEffect(() => {
-    getAllTasks(filterStatus);
+    getAllTasks();
     return () => { };
   }, [filterStatus]);
 
-  console.log(allTasks);
+  console.log(tabs);
+
   return (
     <DashboardLayout activeMenu="Manage Tasks">
       <div className='my-5' >

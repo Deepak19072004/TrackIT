@@ -41,7 +41,7 @@ const Mytasks = () => {
   };
   // console.log("Tabs",tabs);
   const handleClick = (taskId) => {
-    navigate(`/user/task-details/${taskId}`, { state: { taskId: taskData._id } })
+    navigate(`/user/task-details/${taskId}`);
   };
 
   const handleDownload = async () => {

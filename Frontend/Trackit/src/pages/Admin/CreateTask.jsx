@@ -42,6 +42,8 @@ const CreateTask = () => {
     setTaskData((prevData) => ({...prevData, [key]: value}));
   }
 
+  
+
   const clearData = () => {
     setTaskData({
       title: "",
@@ -53,6 +55,7 @@ const CreateTask = () => {
       attachments : []
     })
   }
+  // console.log("Attachments being sent:", taskData.attachments);
 
   const createTask = async () => {
       setLoading(true);
@@ -194,7 +197,7 @@ const CreateTask = () => {
     if(taskId){
       getTaskbyID(taskId);
     }
-
+    console.log(taskData.attachments);
     return () => {
 
     }
